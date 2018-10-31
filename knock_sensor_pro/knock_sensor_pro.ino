@@ -91,16 +91,7 @@ void listenToSecretKnock(){
     if (knockSensorValue >=threshold){                   //got another knock...
       //record the delay time.
       Serial.println("knock.");
-      now=millis();
-      knockReadings[currentKnockNumber] = now-startTime;
-      currentKnockNumber ++;                             //increment the counter
-      startTime=now;          
-      // and reset our timer for the next knock
-      digitalWrite(greenLED, LOW);  
-      if (programButtonPressed==true){
-        digitalWrite(redLED, LOW);                       // and the red one too if we're programming a new knock.
-      }
-      delay(knockFadeTime);                              // again, a little delay to let the knock decay.
+                               // again, a little delay to let the knock decay.
       digitalWrite(greenLED, HIGH);
       if (programButtonPressed==true){
         digitalWrite(redLED, HIGH);                         
